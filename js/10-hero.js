@@ -7,7 +7,8 @@
   const vertical = matchMedia('(max-width: 899px) and (orientation: portrait)').matches;
   const telemovel = matchMedia('(max-width: 900px)').matches;
   // no telemóvel o filme só aparece quando o logótipo pousa; até lá fica o cartaz (que é o que está por baixo do logótipo)
-  let podeMostrar = !(telemovel && !reduz && hl0);
+  // o filme aparece logo que toca: o primeiro fotograma é a própria capa, por isso não há salto
+  let podeMostrar = true;
   let heroVisivel = true, aCorrer = false, tentativas = 0, retoma = 0, pendente = false, ultimoGesto = 0;
   let marcaTocar; const aTocar = new Promise((r) => (marcaTocar = r));
   // iPhone: sem som, em linha, sem controlos nem ícone de play; a fonte escolhe-se antes do primeiro play
